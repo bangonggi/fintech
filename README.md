@@ -1,1 +1,1 @@
-# pintech
+# Fintech
