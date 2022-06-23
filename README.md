@@ -1,1 +1,1 @@
-# Fintech Hackerthon
+# Fintech Hackathon
