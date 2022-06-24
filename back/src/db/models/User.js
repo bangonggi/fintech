@@ -7,7 +7,7 @@ class User {
   }
 
   static async findById({ userId }) {
-    const user = await UserModel.findOne({ id: userId });
+    const user = await UserModel.findOne({ userId });
     return user;
   }
 
@@ -18,7 +18,7 @@ class User {
 
   static async update({ userId, toUpdate }) { 
     const updatedUser = await UserModel.findOneAndUpdate(
-      { id: userId },
+      { userId },
       { $set: toUpdate },
       { returnOriginal: false },
     )

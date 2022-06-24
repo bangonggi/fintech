@@ -26,10 +26,10 @@ buttonRouter.put(
       const once = user.once;
       const currentMoney = user.currentMoney;
       const updatedHp = hp < 80 ? hp + 20 : 100
-
+      console.log("currentMoney ?", user);
       const updatedUser = await UserModel.findOneAndUpdate(
         { userId },
-        { $set: { food: true, hp: updatedHp, currentMoney: currentMoney + once } },
+        { $set: { food: true, hp: updatedHp, currentMoney: user.currentMoney + once } },
         { returnOriginal: false }
       );
       

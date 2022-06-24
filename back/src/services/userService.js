@@ -5,8 +5,8 @@ import jwt from "jsonwebtoken";
 class userAuthService {
   static async addUser({ name }) {
     // id 는 유니크 값 부여
-    const id = uuidv4();
-    const newUser = { id, name };
+    const userId = uuidv4();
+    const newUser = { userId, name };
 
     // db에 저장
     const createdNewUser = await User.create({ newUser });
@@ -36,7 +36,7 @@ class userAuthService {
 
     // 로그인 성공 -> JWT 웹 토큰 생성
     const secretKey = process.env.JWT_SECRET_KEY || "jwt-secret-key";
-    const token = jwt.sign({ userId: user.id }, secretKey);
+    const token = jwt.sign({ userId: user.userId }, secretKey);
 
     const loginUser = {
       token,
