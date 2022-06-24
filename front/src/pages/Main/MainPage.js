@@ -47,6 +47,8 @@ const Container = styled.div`
   max-width: 770px;
   min-width: 360px;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-image: url("/images/rooms.jpg");
+  background-repeat: no-repeat;
+  position: absolute;
   overflow: hidden;
 `;
