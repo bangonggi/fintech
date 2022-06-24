@@ -6,11 +6,9 @@ import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 import {
   faBell,
   faHeart,
+  faFileLines,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
-import MedicationLiquidSharpIcon from '@material-ui/icons/MedicationLiquidSharp';
-import MenuBookSharpIcon from '@material-ui/icons/MenuBookSharp';
-
 import Notice from "pages/Main/Notice";
 import { useSelector } from "react-redux";
 
@@ -36,7 +34,7 @@ const TabBar = () => {
 
       <Cricle shadow={true} width={110} color={"white"} bottom={0} />
       <Container>
-      <Tab onClick={handleTabClick("/food")}>
+      <Tab onClick={handleTabClick("/game")}>
           <FontAwesomeIcon icon={faHeart} size="2x" />
           <span>밥</span>
         </Tab>
@@ -60,14 +58,12 @@ const TabBar = () => {
 
         <Tab onClick={handleNoticeClick}>
           {user?.alertsExist && <Dot />}
-          <FontAwesomeIcon size="2x" />
-          <MenuBookSharpIcon />
+          <FontAwesomeIcon icon={faFileLines} size="2x" />
           <span>뉴스</span>
         </Tab>
 
         <Tab onClick={handleTabClick("/cure")}>
-          <FontAwesomeIcon size="2x" />
-          <MedicationLiquidSharpIcon />
+          <FontAwesomeIcon icon={faUser} size="2x" />
           <span>치료</span>
         </Tab>
       </Container>
