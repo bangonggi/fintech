@@ -62,6 +62,7 @@ userAuthRouter.put(
       // URI로부터 사용자 id를 추출함.
       const userId = req.params.id;
       // body data 로부터 업데이트할 사용자 정보를 추출함.
+      const charName = req.body.charName ?? null;
       const goal = req.body.goal ?? null;
       const q1 = req.body.q1 ?? null;
       const q2 = req.body.q2 ?? null;
@@ -88,7 +89,7 @@ userAuthRouter.put(
           break;
       }
 
-      const toUpdate = { goal, once, q1, q2, countDay, hp, ep, food, news, game };
+      const toUpdate = { charName, goal, once, q1, q2, countDay, hp, ep, food, news, game };
 
       // 해당 사용자 아이디로 사용자 정보를 db에서 찾아 업데이트함. 업데이트 요소가 없을 시 생략함
       const updatedUser = await userAuthService.setUser({ userId, toUpdate });

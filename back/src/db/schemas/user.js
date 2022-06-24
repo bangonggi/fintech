@@ -10,6 +10,10 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    charName: {
+      type: String,
+      required: false,
+    },
     goal: {
       type: Number,
       required: false,
