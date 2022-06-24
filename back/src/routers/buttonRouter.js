@@ -16,12 +16,6 @@ buttonRouter.put(
         throw new Error("존재하지 않는 userId입니다.")
       }
 
-      const food = user.food;
-
-      if(food) {
-        throw new Error("food의 값이 이미 true 입니다.")
-      }
-
       const hp = user.hp;
       const once = user.once;
       const currentMoney = user.currentMoney;
@@ -143,8 +137,9 @@ buttonRouter.put(
       const ep = user.ep
 
       if(hp > 20 && ep > 10 ) {
-        throw new Error("hp>20, ep>10 입니다.")
+        throw new Error("hp > 20, ep > 10 입니다.")
       }
+
       const updatedHp = hp < 40 ? hp + 60 : 100
       const updatedEp = ep < 50 ? hp + 50 : 100
       const currentMoney = user.currentMoney;
