@@ -68,6 +68,9 @@ userAuthRouter.put(
       const countDay = req.body.countDay ?? null;
       const hp = req.body.hp ?? null;
       const ep = req.body.ep ?? null;
+      const food = req.body.food ?? null;
+      const news = req.body.news ?? null;
+      const game = req.body.game ?? null;
 
       let once;
       switch (goal) {
@@ -85,7 +88,7 @@ userAuthRouter.put(
           break;
       }
 
-      const toUpdate = { goal, once, q1, q2, countDay, hp, ep };
+      const toUpdate = { goal, once, q1, q2, countDay, hp, ep, food, news, game };
 
       // 해당 사용자 아이디로 사용자 정보를 db에서 찾아 업데이트함. 업데이트 요소가 없을 시 생략함
       const updatedUser = await userAuthService.setUser({ userId, toUpdate });
