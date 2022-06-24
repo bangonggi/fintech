@@ -25,36 +25,25 @@ import {
   faTicket,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 const parcelCategory = [
-  { eng: "fruitVegetable", kor: "과일·채소", icon: faCarrot },
-  { eng: "cereal", kor: "견과·쌀", icon: faWheatAwn },
-  { eng: "seafood", kor: "수산·해산·건어물", icon: faFish },
-  { eng: "meatEgg", kor: "정육·달걀", icon: faEgg },
-  { eng: "noddleSpice", kor: "면·양념·오일", icon: faCubesStacked },
-  { eng: "drink", kor: "생수·음료·우유", icon: faBottleDroplet },
-  { eng: "coffeeAlcohol", kor: "커피·주류", icon: faWineGlass },
-  { eng: "living", kor: "생활용품·리빙", icon: faFaceSmile },
-  { eng: "kitchen", kor: "주방용품", icon: faUtensils },
-  { eng: "other", kor: "기타", icon: faCircleExclamation },
+  { eng: "fruitVegetable", kor: "ㄱ·ㄱ", icon: faCarrot },
+  { eng: "cereal", kor: "ㄴ·ㄴ", icon: faWheatAwn },
+  { eng: "seafood", kor: "ㄷ·ㄷ", icon: faFish },
+  { eng: "meatEgg", kor: "ㄹ·ㄹ", icon: faEgg },
+  { eng: "noddleSpice", kor: "ㅁ·ㅁ", icon: faCubesStacked },
 ];
 
 const subscribeCategory = [
-  { eng: "food", kor: "음식", icon: faBowlFood },
-  { eng: "cafe", kor: "카페·디저트", icon: faMugSaucer },
-  { eng: "health", kor: "운동·헬스", icon: faDumbbell },
-  { eng: "beauty", kor: "미용·뷰티·네일", icon: faGem },
-  { eng: "stay", kor: "숙박·펜션·모텔", icon: faHotel },
-  { eng: "pet", kor: "애견·반려동물", icon: faDog },
-  { eng: "study", kor: "스터디·학원·교육", icon: faPencil },
-  { eng: "class", kor: "공방·클래스", icon: faHand },
-  { eng: "game", kor: "오락·여가·레저", icon: faGamepad },
-  { eng: "culture", kor: "문화·예술", icon: faTicket },
-  { eng: "else", kor: "기타", icon: faCircleExclamation },
+  { eng: "food", kor: "내 정보", icon: faBowlFood },
+  { eng: "cafe", kor: "이름 변경", icon: faMugSaucer },
+  { eng: "health", kor: "추가 추가", icon: faDumbbell },
 ];
 
 const options = [
-  { eng: "parcel", kor: "택배", categoryType: parcelCategory },
-  { eng: "subscribe", kor: "이용권", categoryType: subscribeCategory },
+  { eng: "parcel", kor: "상품", categoryType: parcelCategory },
+  { eng: "subscribe", kor: "My공기", categoryType: subscribeCategory },
 ];
 
 const Category = ({ setIsOpenSideBar, setProducts, setPage }) => {
@@ -72,6 +61,10 @@ const Category = ({ setIsOpenSideBar, setProducts, setPage }) => {
       }
       navigate(`/products?category=${eng}`);
     };
+  };
+
+  const handleSearchBtnClick = () => {
+    navigate("/search");
   };
 
   const handleOptionClick = (eng, categoryType) => {
@@ -94,6 +87,11 @@ const Category = ({ setIsOpenSideBar, setProducts, setPage }) => {
           </Tab>
         ))}
       </TabContainer>
+
+      <SearchButton onClick={handleSearchBtnClick}>
+        <span>검색을 해볼까요?</span>
+        <FontAwesomeIcon icon={faMagnifyingGlass} size="1x" />
+      </SearchButton>
 
       <CategoryContainer>
         {category.map(({ eng, kor, icon }, idx) => (
@@ -144,10 +142,11 @@ const Tab = styled.div`
   }
 `;
 
+// 카테고리의 세부 카테고리에 따라 컨테이너를 따르게 둘 것!
 const CategoryContainer = styled.div`
   width: 100%;
-  height: 72vh;
-  margin-top: 5vh;
+  height: 30vh;
+  margin-top: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -164,4 +163,21 @@ const CategoryContainer = styled.div`
       margin-right: 15px;
     }
   }
+`;
+
+const SearchButton = styled.div`
+  cursor: pointer;
+  margin: 20px 0px 0 57px;
+  padding: 0 15px 0 15px;
+  width: 80%;
+  height: 45px;
+  background-color: white;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #cccccc;
+  font-size: 12px;
 `;

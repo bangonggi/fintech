@@ -12,6 +12,8 @@ import {
 import Notice from "pages/Main/Notice";
 import { useSelector } from "react-redux";
 
+import { FaBeer } from 'react-icons/fa';
+
 const TabBar = () => {
   const { user } = useSelector((state) => state.user);
   const [isOpenNotice, setIsOpenNotice] = useState(false);
@@ -34,7 +36,7 @@ const TabBar = () => {
 
       <Cricle shadow={true} width={110} color={"white"} bottom={0} />
       <Container>
-      <Tab onClick={handleTabClick("/game")}>
+      <Tab onClick={handleTabClick("/food")}>
           <FontAwesomeIcon icon={faHeart} size="2x" />
           <span>밥</span>
         </Tab>
@@ -63,7 +65,8 @@ const TabBar = () => {
         </Tab>
 
         <Tab onClick={handleTabClick("/cure")}>
-          <FontAwesomeIcon icon={faUser} size="2x" />
+          <FontAwesomeIcon size="2x" />
+          <FaBeer />
           <span>치료</span>
         </Tab>
       </Container>
