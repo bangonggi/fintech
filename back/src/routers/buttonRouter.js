@@ -91,12 +91,6 @@ buttonRouter.put(
         throw new Error("존재하지 않는 userId입니다.")
       }
 
-      const game = user.game;
-
-      if(game) {
-        throw new Error("game 값이 이미 true 입니다.")
-      }
-
       const ep = user.ep;
       const updatedEp = ep < 90 ? ep + 10 : 100
       const currentMoney = user.currentMoney;
