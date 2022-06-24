@@ -4,17 +4,13 @@ import styled from "styled-components";
 import TopBar from "./TopBar";
 import Tabs from "./Tabs";
 import HomeTab from "./HomeTab";
-import BestTab from "./BestTab";
-import DeadlineTab from "./DeadlineTab";
-import SideBar from "../../components/SideBar";
+import SideLeftBar from "../../components/SideLeftBar";
 import Category from "../../components/Category";
 import TabBar from "components/TabBar";
 import { useLocation } from "react-router-dom";
 
 const tabs = {
   home: <HomeTab />,
-  best: <BestTab />,
-  deadline: <DeadlineTab />,
 };
 
 const MainPage = () => {
@@ -33,9 +29,9 @@ const MainPage = () => {
       {tabs[tab]}
 
       {isOpenSideBar && (
-        <SideBar title="카테고리" setIsOpenSideBar={setIsOpenSideBar}>
+        <SideLeftBar title="카테고리" setIsOpenSideBar={setIsOpenSideBar}>
           <Category />
-        </SideBar>
+        </SideLeftBar>
       )}
 
       <TabBar />

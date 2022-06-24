@@ -6,9 +6,10 @@ import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 import {
   faBell,
   faHeart,
-  faFileLines,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
+import MedicationLiquidSharpIcon from '@material-ui/icons/MedicationLiquidSharp';
+import MenuBookSharpIcon from '@material-ui/icons/MenuBookSharp';
 
 import Notice from "pages/Main/Notice";
 import { useSelector } from "react-redux";
@@ -35,15 +36,14 @@ const TabBar = () => {
 
       <Cricle shadow={true} width={110} color={"white"} bottom={0} />
       <Container>
-        <Tab onClick={handleNoticeClick}>
-          {user?.alertsExist && <Dot />}
-          <FontAwesomeIcon icon={faBell} size="2x" />
-          <span>알림</span>
+      <Tab onClick={handleTabClick("/food")}>
+          <FontAwesomeIcon icon={faHeart} size="2x" />
+          <span>밥</span>
         </Tab>
 
-        <Tab onClick={handleTabClick("/wishlist")}>
+        <Tab onClick={handleTabClick("/game")}>
           <FontAwesomeIcon icon={faHeart} size="2x" />
-          <span>찜</span>
+          <span>놀이</span>
         </Tab>
 
         <CriclesContainer>
@@ -55,18 +55,20 @@ const TabBar = () => {
             onClick={handleTabClick("/")}
           >
             <FontAwesomeIcon icon={faHouseChimney} size="2x" />
-            <span>동구라미</span>
           </Cricle>
         </CriclesContainer>
 
-        <Tab onClick={handleTabClick("/purchaselist")}>
-          <FontAwesomeIcon icon={faFileLines} size="2x" />
-          <span>공구내역</span>
+        <Tab onClick={handleNoticeClick}>
+          {user?.alertsExist && <Dot />}
+          <FontAwesomeIcon size="2x" />
+          <MenuBookSharpIcon />
+          <span>뉴스</span>
         </Tab>
 
-        <Tab onClick={handleTabClick("/mypage")}>
-          <FontAwesomeIcon icon={faUser} size="2x" />
-          <span>my동구</span>
+        <Tab onClick={handleTabClick("/cure")}>
+          <FontAwesomeIcon size="2x" />
+          <MedicationLiquidSharpIcon />
+          <span>치료</span>
         </Tab>
       </Container>
     </>

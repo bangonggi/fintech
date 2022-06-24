@@ -5,7 +5,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import usePreventScroll from "hooks/usePreventScroll";
 
-const SideBar = ({ children, title, setIsOpenSideBar }) => {
+const SideRightBar = ({ children, title, setIsOpenSideBar }) => {
   const [show, setShow] = useState(true);
   const [top, setTop] = useState(window.scrollY);
 
@@ -32,11 +32,11 @@ const SideBar = ({ children, title, setIsOpenSideBar }) => {
   );
 };
 
-export default SideBar;
+export default SideRightBar;
 
 const sidebarShow = keyframes`
   0% {
-    left: -100%;
+    left: 100%;
   }
   100% {
     left: 0;
@@ -48,7 +48,7 @@ const sidebarUnshow = keyframes`
   left: 0;
 }
 100% {
-  left: -100%;
+  left: 100%;
 }
 `;
 

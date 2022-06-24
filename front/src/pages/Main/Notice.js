@@ -4,16 +4,8 @@ import * as Api from "api";
 import { useDispatch, useSelector } from "react-redux";
 import { confirmNotice } from "redux/userSlice";
 
-import SideBar from "components/SideBar";
+import SideRightBar from "components/SideRightBar";
 
-const from = {
-  product: "상품 삭제",
-  cs: "상품 문의",
-  review: "상품 후기",
-  group: "공구 알림",
-  groupChat: "댓글 알림",
-  comment: "댓글 알림",
-};
 
 const Notice = ({ setIsOpenNotice }) => {
   const { user } = useSelector((state) => state.user);
@@ -35,30 +27,10 @@ const Notice = ({ setIsOpenNotice }) => {
     getNoticeList();
   }, []);
   return (
-    <SideBar title="알림" setIsOpenSideBar={setIsOpenNotice}>
-      <Container noContents={noticeList.length === 0}>
-        {noticeList.length === 0 && (
-          <NoContentContainer>
-            <img
-              src={`${process.env.PUBLIC_URL}/images/noSale.svg`}
-              alt="no nearby"
-            />
-            알림이 없습니다.
-          </NoContentContainer>
-        )}
-        {noticeList.map((notice) => (
-          <NoticeCard key={notice._id}>
-            <Image url={notice.image} />
-            <Text>
-              <span>
-                [{from[notice.from]}] {}
-              </span>
-              <span>{notice.content}</span>
-            </Text>
-          </NoticeCard>
-        ))}
-      </Container>
-    </SideBar>
+    <SideRightBar title="오늘의 뉴스" setIsOpenSideBar={setIsOpenNotice}>
+
+        
+    </SideRightBar>
   );
 };
 
