@@ -57,31 +57,32 @@ userAuthRouter.get(
 
 userAuthRouter.put(
   "/users/:id",
-  login_required,
   async function (req, res, next) {
     try {
       // URI로부터 사용자 id를 추출함.
       const userId = req.params.id;
       // body data 로부터 업데이트할 사용자 정보를 추출함.
-      const name = req.body.name ?? null;
       const goal = req.body.goal ?? null;
+      const q1 = req.body.q1 ?? null;
+      const q2 = req.body.q2 ?? null;
+
       let once;
       switch (goal) {
-        case 450000:
+        case "450000":
           once = 5000;
           break;
-        case 900000:
+        case "900000":
           once = 10000;
           break;
-        case 1800000:
+        case "1800000":
           once = 20000;
           break;
-        case 2700000:
+        case "2700000":
           once = 30000;
           break;
       }
 
-      const toUpdate = { name, goal, once, description };
+      const toUpdate = { goal, once, q1, q2 };
 
       // 해당 사용자 아이디로 사용자 정보를 db에서 찾아 업데이트함. 업데이트 요소가 없을 시 생략함
       const updatedUser = await userAuthService.setUser({ userId, toUpdate });
