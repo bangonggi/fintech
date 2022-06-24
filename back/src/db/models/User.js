@@ -16,16 +16,14 @@ class User {
     return users;
   }
 
-  static async update({ userId, fieldToUpdate, newValue }) {
-    const filter = { id: userId };
-    const update = { [fieldToUpdate]: newValue };
-    const option = { returnOriginal: false };
-
+  static async update({ userId, toUpdate }) { 
     const updatedUser = await UserModel.findOneAndUpdate(
-      filter,
-      update,
-      option
-    );
+      { id: userId },
+      { $set: toUpdate },
+      { returnOriginal: false },
+    )
+      .lean();
+
     return updatedUser;
   }
 }
