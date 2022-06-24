@@ -16,7 +16,7 @@ userAuthRouter.post(
 
     // req (request) 에서 데이터 가져오기
     const name = req.body.name;
-    const email = req.body.email;
+    const email = req.body.goal;
     const password = req.body.password;
 
     // 위 데이터를 유저 db에 추가하기
@@ -36,26 +36,6 @@ userAuthRouter.post(
   }
 });
 
-userAuthRouter.post(
-  "/users/login",
-  async function (req, res, next) {
-  try {
-    // req (request) 에서 데이터 가져오기
-    const email = req.body.email;
-    const password = req.body.password;
-
-    // 위 데이터를 이용하여 유저 db에서 유저 찾기
-    const user = await userAuthService.getUser({ email, password });
-
-    if (user.errorMessage) {
-      throw new Error(user.errorMessage);
-    }
-
-    res.status(200).send(user);
-  } catch (error) {
-    next(error);
-  }
-});
 
 userAuthRouter.get(
   "/users",

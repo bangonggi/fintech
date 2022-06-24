@@ -2,11 +2,7 @@ import { Schema, model } from "mongoose";
 
 const UserSchema = new Schema(
   {
-    id: {
-      type: String,
-      required: true,
-    },
-    email: {
+    userId: {
       type: String,
       required: true,
     },
@@ -14,14 +10,61 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    password: {
+    goal: {
+      type: Number,
+      required: true,
+    },
+    once: {
+      type: Number,
+      required: true,
+    },
+    currentMoney: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    countDay: {
+      type: Number,
+      required: true, 
+      default: 1,
+    },
+    q1: {
       type: String,
       required: true,
     },
-    description: {
+    q2: {
       type: String,
-      required: false,
-      default: "설명이 아직 없습니다. 추가해 주세요.",
+      required: true,
+    },
+    hp: {
+      type: Number,
+      required: true,
+      default: 80,
+    },
+    ep: {
+      type: Number,
+      required: true,
+      default: 60,
+    },
+    fp: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    food: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    news: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    game: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   {
