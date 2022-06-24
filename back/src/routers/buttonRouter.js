@@ -10,7 +10,7 @@ buttonRouter.put(
   async (req, res, next) => {
     try {
       const userId = req.currentUserId
-      const user = await UserModel.find({userId})
+      const user = await UserModel.find({ userId })
 
       if(!user) {
         throw new Error("존재하지 않는 userId입니다.")
@@ -25,10 +25,10 @@ buttonRouter.put(
       const hp = user.hp;
       const once = user.once;
       const updatedHp = hp < 80 ? hp + 20 : 100
-
+      console.log("currentMoney ?", user);
       const updatedUser = await UserModel.findOneAndUpdate(
         { userId },
-        { $set: { food: true, hp: updatedHp, currentMoney: currentMoney + once } },
+        { $set: { food: true, hp: updatedHp, currentMoney: user.currentMoney + once } },
         { returnOriginal: false }
       );
       
