@@ -10,7 +10,7 @@ buttonRouter.put(
   async (req, res, next) => {
     try {
       const userId = req.currentUserId
-      const user = await UserModel.find({userId})
+      const user = await UserModel.find({ userId })
 
       if(!user) {
         throw new Error("존재하지 않는 userId입니다.")
@@ -24,6 +24,7 @@ buttonRouter.put(
 
       const hp = user.hp;
       const once = user.once;
+      const currentMoney = user.currentMoney;
       const updatedHp = hp < 80 ? hp + 20 : 100
 
       const updatedUser = await UserModel.findOneAndUpdate(
@@ -51,7 +52,7 @@ buttonRouter.put(
   async (req, res, next) => {
     try {
       const userId = req.currentUserId
-      const user = await UserModel.find({userId})
+      const user = await UserModel.find({ userId })
 
       if(!user) {
         throw new Error("존재하지 않는 userId입니다.")
@@ -90,7 +91,7 @@ buttonRouter.put(
   async (req, res, next) => {
     try {
       const userId = req.currentUserId
-      const user = await UserModel.find({userId})
+      const user = await UserModel.find({ userId })
 
       if(!user) {
         throw new Error("존재하지 않는 userId입니다.")
@@ -132,7 +133,7 @@ buttonRouter.put(
   async (req, res, next) => {
     try {
       const userId = req.currentUserId
-      const user = await UserModel.find({userId})
+      const user = await UserModel.find({ userId })
 
       if(!user) {
         throw new Error("존재하지 않는 userId입니다.")
