@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import {
-  faBell,
-  faHeart,
-  faFileLines,
-  faUser,
+  faFaceLaughSquint
 } from "@fortawesome/free-regular-svg-icons";
+import {
+  faHotdog,
+  faStethoscope,
+  faNewspaper
+} from "@fortawesome/free-solid-svg-icons";
 import Notice from "pages/Main/Notice";
 import { useSelector } from "react-redux";
 
@@ -36,13 +38,13 @@ const TabBar = () => {
 
       <Cricle shadow={true} width={110} color={"white"} bottom={0} />
       <Container>
-      <Tab onClick={handleTabClick("/food")}>
-          <FontAwesomeIcon icon={faHeart} size="2x" />
+      <Tab onClick={handleTabClick("/game")}>
+          <FontAwesomeIcon icon={faHotdog} size="2x" />
           <span>밥</span>
         </Tab>
 
         <Tab onClick={handleTabClick("/game")}>
-          <FontAwesomeIcon icon={faHeart} size="2x" />
+          <FontAwesomeIcon icon={faFaceLaughSquint} size="2x" />
           <span>놀이</span>
         </Tab>
 
@@ -54,19 +56,18 @@ const TabBar = () => {
             bottom={15}
             onClick={handleTabClick("/")}
           >
-            <FontAwesomeIcon icon={faHouseChimney} size="2x" />
+            <FontAwesomeIcon icon={faHeart} size="2x" />
           </Cricle>
         </CriclesContainer>
 
         <Tab onClick={handleNoticeClick}>
           {user?.alertsExist && <Dot />}
-          <FontAwesomeIcon icon={faFileLines} size="2x" />
+          <FontAwesomeIcon icon={faNewspaper} size="2x" />
           <span>뉴스</span>
         </Tab>
 
         <Tab onClick={handleTabClick("/cure")}>
-          <FontAwesomeIcon size="2x" />
-          <FaBeer />
+          <FontAwesomeIcon icon={faStethoscope} size="2x" />
           <span>치료</span>
         </Tab>
       </Container>
