@@ -27,7 +27,7 @@ buttonRouter.put(
       const currentMoney = user.currentMoney;
       const updatedHp = hp < 80 ? hp + 20 : 100
       console.log("currentMoney ?", user);
-      const updatedUser = await UserModel.findOneOneAndUpdate(
+      const updatedUser = await UserModel.findOneAndUpdate(
         { userId },
         { $set: { food: true, hp: updatedHp, currentMoney: user.currentMoney + once } },
         { returnOriginal: false }
@@ -66,7 +66,7 @@ buttonRouter.put(
 
       const fp = user.fp;
 
-      const updatedUser = await UserModel.findOneOneAndUpdate(
+      const updatedUser = await UserModel.findOneAndUpdate(
         { userId },
         { $set: { news: true, fp: fp + 1 } },
         { returnOriginal: false }
@@ -108,7 +108,7 @@ buttonRouter.put(
       const currentMoney = user.currentMoney;
       const once = user.once;
 
-      const updatedUser = await UserModel.findOneOneAndUpdate(
+      const updatedUser = await UserModel.findOneAndUpdate(
         { userId },
         { $set: { game: true, ep: updatedEp, currentMoney: currentMoney + once } },
         { returnOriginal: false }
@@ -150,7 +150,7 @@ buttonRouter.put(
       const currentMoney = user.currentMoney;
       const once = user.once;
 
-      const updatedUser = await UserModel.findOneOneAndUpdate(
+      const updatedUser = await UserModel.findOneAndUpdate(
         { userId },
         { $set: { hp: updatedHp, ep: updatedEp, currentMoney: currentMoney + once*4 } },
         { returnOriginal: false }
