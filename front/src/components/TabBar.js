@@ -14,8 +14,6 @@ import {
 import Notice from "pages/Main/Notice";
 import { useSelector } from "react-redux";
 
-import { FaBeer } from 'react-icons/fa';
-
 const TabBar = () => {
   const { user } = useSelector((state) => state.user);
   const [isOpenNotice, setIsOpenNotice] = useState(false);
@@ -57,6 +55,8 @@ const TabBar = () => {
             onClick={handleTabClick("/")}
           >
             <FontAwesomeIcon icon={faHeart} size="2x" />
+            {/* 백엔드 호출해서 countDay 넣어줄 것 */}
+          <span>D+</span>
           </Cricle>
         </CriclesContainer>
 

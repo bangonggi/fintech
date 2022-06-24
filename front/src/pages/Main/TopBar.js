@@ -8,7 +8,6 @@ const TopBar = ({ setIsOpenSideBar }) => {
     setIsOpenSideBar(true);
   };
 
-
   return (
     <Container>
       <CategoryButton handleClick={handleCategoryBtnClick} />

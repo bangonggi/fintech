@@ -6,7 +6,6 @@ import { confirmNotice } from "redux/userSlice";
 
 import SideRightBar from "components/SideRightBar";
 
-
 const Notice = ({ setIsOpenNotice }) => {
   const { user } = useSelector((state) => state.user);
   const [noticeList, setNoticeList] = useState([]);

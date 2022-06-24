@@ -23,7 +23,7 @@ const HomeTab = () => {
   const [page, setPage] = useState(1);
   const [cardPosition, setCardPosition] = useState(1);
   const [transition, setTransition] = useState(true);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const lastPage = recommendationGroups.length;
 
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const HomeTab = () => {
     const getNearbyGroups = Api.get("groups/sort/locations");
 
     try {
-      setLoading(true);
+      // setLoading(true);
 
       const [recommendationGroupsRes, nearbyGroupsRes] = await Promise.all([
         getRecommendationGroups,
@@ -66,7 +66,7 @@ const HomeTab = () => {
       dispatch(setRecommendation(recommendationGroupsRes.data.payload));
       dispatch(setNearby(nearbyGroupsRes.data.payload));
 
-      setLoading(false);
+      // setLoading(false);
     } catch (e) {
       // 에러처리
     }
@@ -79,55 +79,18 @@ const HomeTab = () => {
 
   return (
     <Container>
-      {loading ? (
-        <LoadingSpinner />
-      ) : (
+      {/* {loading ? (
+         <LoadingSpinner />
+      ) : ( */}
         <>
           <InterestGroups>
             <Title>
-              <span>관심 있으실만한</span>
-              <span>공동구매 추천해드려요</span>
+              <span>여기에 애기들을 추가해줄게요</span>
+              
             </Title>
-
-            <SliderContainer>
-              <CardList
-                length={recommendationGroups.length + 2}
-                left={cardPosition}
-                transition={transition}
-              >
-                {recommendationGroups.length > 0 && (
-                  <SliderCard purchase={recommendationGroups[lastPage - 1]} />
-                )}
-                {recommendationGroups.map((group) => (
-                  <SliderCard group={group} key={group.groupId} />
-                ))}
-                {recommendationGroups.length > 0 && (
-                  <SliderCard group={recommendationGroups[0]} />
-                )}
-              </CardList>
-            </SliderContainer>
-
-            <Pagination>
-              <FontAwesomeIcon
-                icon={faChevronLeft}
-                onClick={handleChevronClick(true)}
-              />
-              <div>
-                <span>{page}</span> / {lastPage}
-              </div>
-              <FontAwesomeIcon
-                icon={faChevronRight}
-                onClick={handleChevronClick(false)}
-              />
-            </Pagination>
           </InterestGroups>
-
-          <PaginationCardsContainer
-            title={homeTabGroupsTitle}
-            groupPurchaseList={nearbyGroups}
-          />
-        </>
-      )}
+      </>
+      {/* ) */}
     </Container>
   );
 };
