@@ -107,7 +107,6 @@ userAuthRouter.put(
 
 userAuthRouter.get(
   "/users/:id",
-  login_required,
   async function (req, res, next) {
     try {
       const userId = req.params.id;
