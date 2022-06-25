@@ -85,7 +85,17 @@ const TabBar = () => {
           </Cricle>
         </CriclesContainer>
 
-        <Tab onClick={handleNoticeClick}>
+        {/* <Tab onClick={handleNoticeClick}>
+          {user?.alertsExist && <Dot />}
+          <FontAwesomeIcon icon={faNewspaper} size="2x" />
+          <span>뉴스</span>
+        </Tab> */}
+
+        <Tab onClick={ () => {
+          handleTabClick("/news")()
+          handleNoticeClick()
+        }}
+        >
           {user?.alertsExist && <Dot />}
           <FontAwesomeIcon icon={faNewspaper} size="2x" />
           <span>뉴스</span>

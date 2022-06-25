@@ -30,6 +30,7 @@ const Notice = ({ setIsOpenNotice }) => {
   return (
     <SideRightBar title="오늘의 뉴스" setIsOpenSideBar={setIsOpenNotice}>
 
+    <img src="images/newspaper.png" alt=""/>
         
     </SideRightBar>
   );
