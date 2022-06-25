@@ -36,7 +36,7 @@ const TabBar = () => {
 
       <Cricle shadow={true} width={110} color={"white"} bottom={0} />
       <Container>
-      <Tab onClick={handleTabClick("/game")}>
+      <Tab onClick={handleTabClick("/food")}>
           <FontAwesomeIcon icon={faHotdog} size="2x" />
           <span>밥</span>
         </Tab>
