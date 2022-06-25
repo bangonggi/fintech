@@ -15,6 +15,7 @@ const Tabs = () => {
   const [hp, setHp] = useState();
   const [ep, setEp] = useState();
   const [fp, setFp] = useState();
+  const [isFp, setIsFp] = useState();
 
   const getNoticeList = async () => {
     try {
@@ -22,6 +23,7 @@ const Tabs = () => {
       setHp(res.data.hp);
       setEp(res.data.ep);
       setFp(res.data.fp);
+      setIsFp(res.data.fp > 9 ? true : false);
     } catch (e) {
       // 에러처리
     }
@@ -35,16 +37,22 @@ const Tabs = () => {
     <div>
       <TabsContainer>
         <Tab>
-          <div>HP</div>
-          <ProgressBar completed={hp} style={{ width: "50%", }} />
+          <div style={{ backgroundColor: "white", width: "fit-content", borderRadius: "30px", padding: "5px" }}>HP</div>
+          <ProgressBar completed={String(hp)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#D3613B"} />
         </Tab>
         <Tab>
           <div>EP</div>
-          <ProgressBar completed={ep} style={{ width: "50%", }} />
+          <ProgressBar completed={String(ep)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#F5CB47"} />
         </Tab> <Tab>
           <div>FP</div>
-          
-          <ProgressBar completed={fp} style={{ width: "50%", }} />
+          {isFp ?
+            (
+              <ProgressBar completed={String(fp)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#82AF50"} />
+            ) :
+            (
+              <ProgressBar completed={String(fp)} style={{ width: "50%", }} isLabelVisible={false} labelAlignment={"center"} bgColor={"#82AF50"} />
+            )
+          }
         </Tab>
       </TabsContainer>
     </div>
@@ -70,4 +78,6 @@ const TabsContainer = styled.div`
   cursor: pointer;
   width: 100%;
   height: 100%;
+  font-weight: bold;
+  font-size: 24px;
 `;

@@ -58,7 +58,8 @@ const HomeTab = () => {
       ]);
 
       if (nearbyGroupsRes.data.data) {
-        dispatch(setHomeTabGroupsTitle("근처에 있는 공동구매에요!"));
+        dispatch(
+          ("근처에 있는 공동구매에요!"));
       } else {
         dispatch(setHomeTabGroupsTitle("추천드리는 택배공구에요!"));
       }

@@ -34,22 +34,24 @@ const TabBar = () => {
     };
   };
 
-  const [noticeList, setNoticeList] = useState([]);
-
   const dispatch = useDispatch();
 
   const getNoticeList = async () => {
     try {
       const res = await Api.get("users", "9140fef8-fa69-4547-98cc-122f442c7dd5");
-      setNoticeList(res.data.payload || []);
-      dispatch(confirmNotice());
       setName(res.data.charName);
       setCountDay(res.data.countDay);
-      console.log("res ===>", res);
     } catch (e) {
       // 에러처리
     }
   };
+
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleModal = () => {
+    setIsClicked((v) => !v);
+  };
+
 
   useEffect(() => {
     getNoticeList();
@@ -80,7 +82,6 @@ const TabBar = () => {
             onClick={handleTabClick("/")}
           >
             <FontAwesomeIcon icon={faHeart} size="2x" />
-            {/* 백엔드 호출해서 countDay 넣어줄 것 */}
             <span>D+{countDay}</span>
           </Cricle>
         </CriclesContainer>
@@ -108,7 +109,7 @@ const Container = styled.div`
   width: 100%;
   min-width: 360px;
   max-width: 770px;
-  height: 75px;
+  height: 95px;
   @media (max-width: 440px) {
     height: 65px;
   }
@@ -121,7 +122,7 @@ const Container = styled.div`
 
 const CriclesContainer = styled.div`
   position: relative;
-  width: 60px;
+  width: 80px;
   @media (max-width: 440px) {
     width: 45px;
   }
@@ -185,7 +186,7 @@ const Tab = styled.div`
 
   color: #8a8a8a;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 16px;
   @media (max-width: 440px) {
     font-size: 10px;
   }
