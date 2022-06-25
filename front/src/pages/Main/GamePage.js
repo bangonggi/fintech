@@ -13,7 +13,7 @@ const tabs = {
   home: <HomeTab />,
 };
 
-const MainPage = () => {
+const GamePage = () => {
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
 
   const location = useLocation();
@@ -28,7 +28,7 @@ const MainPage = () => {
       <Tabs />
       {tabs[tab]}
       <div style={{width: "90%"}}>
-        <img className="phoneImage" alt="iPhone_01" src="images/shower.gif" width= "100%" />
+        <img className="phoneImage" alt="iPhone_01" src="images/music.gif" width= "100%" />
       </div>
       {isOpenSideBar && (
         <SideLeftBar title="카테고리" setIsOpenSideBar={setIsOpenSideBar}>
@@ -41,7 +41,7 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default GamePage;
 
 const Container = styled.div`
   position: relative;
