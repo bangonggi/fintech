@@ -27,7 +27,9 @@ const MainPage = () => {
 
       <Tabs />
       {tabs[tab]}
-
+      <div style={{width: "90%"}}>
+        <img className="phoneImage" alt="iPhone_01" src="images/news.gif" width= "100%" />
+      </div>
       {isOpenSideBar && (
         <SideLeftBar title="카테고리" setIsOpenSideBar={setIsOpenSideBar}>
           <Category />
@@ -45,9 +47,9 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   max-width: 770px;
-  min-width: 360px;
+  min-width: 300px;
   min-height: 100vh;
-  background-image: url("/images/rooms.jpg");
+  background-image: url("/images/roomBig2.png");
   background-repeat: no-repeat;
   position: absolute;
   overflow: hidden;
