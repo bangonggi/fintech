@@ -1539,6 +1539,11 @@
     "schema-utils" "^3.0.0"
     "source-map" "^0.7.3"
 
+"@ramonak/react-progress-bar@^5.0.0":
+  "integrity" "sha512-5jvpTEymdgDVPFz60Zg2qC4TZdxneimJ8xwcd6ljIlKlPg8n4RMzProlRpcfV3y0Is3a6Of70KLNoW+SBFh9mA=="
+  "resolved" "https://registry.npmjs.org/@ramonak/react-progress-bar/-/react-progress-bar-5.0.0.tgz"
+  "version" "5.0.0"
+
 "@reduxjs/toolkit@^1.8.2":
   "integrity" "sha512-CtPw5TkN1pHRigMFCOS/0qg3b/yfPV5qGCsltVnIz7bx4PKTJlGHYfIxm97qskLknMzuGfjExaYdXJ77QTL0vg=="
   "resolved" "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.8.2.tgz"
