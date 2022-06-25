@@ -85,7 +85,7 @@ const HomeTab = () => {
         <>
           <InterestGroups>
             <Title>
-              <span>여기에 애기들을 추가해줄게요</span>
+              <span></span>
               
             </Title>
           </InterestGroups>

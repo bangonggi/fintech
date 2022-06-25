@@ -49,7 +49,7 @@ const Container = styled.div`
   max-width: 770px;
   min-width: 300px;
   min-height: 100vh;
-  background-image: url("/images/roomBig2.png");
+  background-image: url("/images/roomBig3.png");
   background-repeat: no-repeat;
   position: absolute;
   overflow: hidden;
