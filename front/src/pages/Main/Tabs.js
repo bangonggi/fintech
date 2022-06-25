@@ -37,20 +37,20 @@ const Tabs = () => {
     <div>
       <TabsContainer>
         <Tab>
-          <div style={{ backgroundColor: "white", width: "fit-content", borderRadius: "30px", padding: "5px" }}>HP</div>
+          <div style={{ backgroundColor: "white", width: "fit-content", borderRadius: "30px", padding: "5px", boxShadow: "3px 3px 3px #D3613B" }}>HP</div>
           <ProgressBar completed={String(hp)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#D3613B"} />
         </Tab>
         <Tab>
-          <div>EP</div>
-          <ProgressBar completed={String(ep)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#F5CB47"} />
+          <div style={{ backgroundColor: "white", width: "fit-content", borderRadius: "30px", padding: "5px", boxShadow: "3px 3px 3px #82AF50" }}>EP</div>
+          <ProgressBar completed={String(ep)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#82AF50"} />
         </Tab> <Tab>
-          <div>FP</div>
+          <div style={{ backgroundColor: "white", width: "fit-content", borderRadius: "30px", padding: "5px", boxShadow: "3px 3px 3px #F5CB47" }}>FP</div>
           {isFp ?
             (
-              <ProgressBar completed={String(fp)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#82AF50"} />
+              <ProgressBar completed={String(fp)} style={{ width: "50%", }} labelAlignment={"center"} bgColor={"#F5CB47"} />
             ) :
             (
-              <ProgressBar completed={String(fp)} style={{ width: "50%", }} isLabelVisible={false} labelAlignment={"center"} bgColor={"#82AF50"} />
+              <ProgressBar completed={String(fp)} style={{ width: "50%", }} isLabelVisible={false} labelAlignment={"center"} bgColor={"#F5CB47"} />
             )
           }
         </Tab>
