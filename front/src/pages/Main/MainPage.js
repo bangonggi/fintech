@@ -28,7 +28,7 @@ const MainPage = () => {
       <Tabs />
       {tabs[tab]}
       <div style={{width: "90%"}}>
-        <img className="phoneImage" alt="iPhone_01" src="images/shower.gif" width= "100%" />
+        <img className="phoneImage" alt="iPhone_01" src="images/default.gif" width= "100%" />
       </div>
       {isOpenSideBar && (
         <SideLeftBar title="카테고리" setIsOpenSideBar={setIsOpenSideBar}>
