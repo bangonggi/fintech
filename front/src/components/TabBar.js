@@ -19,6 +19,8 @@ import * as Api from "api";
 const TabBar = () => {
   const { user } = useSelector((state) => state.user);
   const [isOpenNotice, setIsOpenNotice] = useState(false);
+  const [name, setName] = useState();
+  const [countDay, setCountDay] = useState();
 
   const navigate = useNavigate();
 
@@ -41,6 +43,8 @@ const TabBar = () => {
       const res = await Api.get("users", "9140fef8-fa69-4547-98cc-122f442c7dd5");
       setNoticeList(res.data.payload || []);
       dispatch(confirmNotice());
+      setName(res.data.charName);
+      setCountDay(res.data.countDay);
       console.log("res ===>", res);
     } catch (e) {
       // 에러처리
@@ -77,7 +81,7 @@ const TabBar = () => {
           >
             <FontAwesomeIcon icon={faHeart} size="2x" />
             {/* 백엔드 호출해서 countDay 넣어줄 것 */}
-          <span>D+</span>
+            <span>D+{countDay}</span>
           </Cricle>
         </CriclesContainer>
 

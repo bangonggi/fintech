@@ -11,7 +11,9 @@ const Notice = ({ setIsOpenNotice }) => {
   const [noticeList, setNoticeList] = useState([]);
 
   const dispatch = useDispatch();
-
+  const handleNoticeClick = () => {
+    setIsOpenNotice(true);
+  };
   const getNoticeList = async () => {
     try {
       const res = await Api.get("users", `${user.id}/alert`);
@@ -20,8 +22,8 @@ const Notice = ({ setIsOpenNotice }) => {
     } catch (e) {
       // 에러처리
     }
-  };
-
+  }; 
+ 
   useEffect(() => {
     getNoticeList();
   }, []);
