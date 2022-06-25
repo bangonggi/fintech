@@ -8,6 +8,9 @@ import FoodPage from "./pages/Main/FoodPage";
 import GamePage from "./pages/Main/GamePage";
 import NewsPage from "./pages/Main/NewsPage";
 import CurePage from "./pages/Main/CurePage";
+import AwardPage from "./pages/Main/AwardPage";
+import CryPage from "./pages/Main/CryPage";
+import BathPage from "./pages/Main/BathPage";
 
 function App() {
   
@@ -17,6 +20,9 @@ function App() {
   const gamePage = <GamePage />;
   const newsPage = <NewsPage />;
   const curePage = <CurePage />;
+  const awardPage = <AwardPage />;
+  const cryPage = <CryPage />;
+  const bathPage = <BathPage />;
 
   return (
     <Router>
@@ -27,6 +33,9 @@ function App() {
           <Route path="/game" element={gamePage} />
           <Route path="/news" element={newsPage} />
           <Route path="/cure" element={curePage} />
+          <Route path="/award" element={awardPage} />
+          <Route path="/cry" element={cryPage} />
+          <Route path="/bath" element={bathPage} />
         </Routes>
       </Container>
     </Router>
