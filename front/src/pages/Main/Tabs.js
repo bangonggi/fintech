@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const tabs = [
   { query: "HP", title: "HP" },
@@ -9,33 +10,36 @@ const tabs = [
 
 const Tabs = () => {
   return (
-    <TabsContainer>
-      {tabs.map((tab) => (
-        <Tab>
-          <span>{tab.title}</span>
-        </Tab>
-      ))}
-    </TabsContainer>
+    <div>
+      <TabsContainer>
+        {tabs.map((tab) => (
+          <Tab>
+            <div>{tab.title}</div>
+            <ProgressBar completed={60} style={{ width: "50%", }} />
+          </Tab>
+        ))}
+      </TabsContainer>
+    </div>
   );
 };
 
 export default Tabs;
 
 const TabsContainer = styled.div`
-  position: relative;
-  margin-top: 5px;
-  left: 5%;
-  width: 90%;
+  gap: 20px;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 85%;
   height: 50px;
   display: flex;
-`;
-
-const Tab = styled.div`
-  cursor: pointer;
-  width: 33.3%;
-  height: 100%;
+  justify-content: space-between;
+  `;
+  
+  const Tab = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
 `;

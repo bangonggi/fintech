@@ -1,13 +1,17 @@
 import axios from "axios";
 
-const backendPortNumber = "5000";
+const backendPortNumber = "5001";
 const serverUrl =
   "http://" + window.location.hostname + ":" + backendPortNumber + "/";
 
 async function get(endpoint, params = "", queryParams = {}) {
+  console.log("params", params);
   return axios.get(serverUrl + endpoint + "/" + params, {
+    // headers: {
+    //   Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
+    // },
     headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
+      'Content-Type': 'application/json',
     },
     params: queryParams,
   });

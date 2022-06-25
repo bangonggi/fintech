@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +13,8 @@ import {
   faNewspaper
 } from "@fortawesome/free-solid-svg-icons";
 import Notice from "pages/Main/Notice";
-import { useSelector } from "react-redux";
+import { confirmNotice } from "redux/userSlice";
+import * as Api from "api";
 
 const TabBar = () => {
   const { user } = useSelector((state) => state.user);
@@ -29,6 +31,25 @@ const TabBar = () => {
       navigate(url);
     };
   };
+
+  const [noticeList, setNoticeList] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const getNoticeList = async () => {
+    try {
+      const res = await Api.get("users", "9140fef8-fa69-4547-98cc-122f442c7dd5");
+      setNoticeList(res.data.payload || []);
+      dispatch(confirmNotice());
+      console.log("res ===>", res);
+    } catch (e) {
+      // 에러처리
+    }
+  };
+
+  useEffect(() => {
+    getNoticeList();
+  }, []);
 
   return (
     <>
